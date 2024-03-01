@@ -60,7 +60,6 @@ fun PanierView() {
     }
     var showDialog by remember { mutableStateOf(false) }
 
-    // Mettre à jour panierItems une seule fois
     panierItems.clear()
     panierItems.addAll(Panier.current(context).items)
 
@@ -179,7 +178,6 @@ fun PanierElemView(item: PanierElem, basketItems: MutableList<PanierElem>) {
                 Text(item.count.toString(),
                     Modifier.align(alignment = Alignment.CenterVertically))
                 Button(onClick = {
-                    // delete item and redraw view
                     Panier.current(context).delete(item, context)
                     basketItems.clear()
                     basketItems.addAll(Panier.current(context).items)
